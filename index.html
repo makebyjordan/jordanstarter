@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan Portal | Dev & Entrepreneur</title>
+  <meta name="description" content="Portal personal de Jordan: desarrollador, emprendedor y alumno de por vida. Soluciones Web3, IA y diseño premium.">
+  
+  <!-- Tailwind CSS & Custom Styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            deep: '#0c0e1b',
+            sidebar: '#13172d',
+            panel: 'rgba(19, 23, 45, 0.4)',
+            'pink-glow': '#e100ff',
+            'orange-glow': '#ff7a00',
+            'blue-glow': '#00f2fe',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Embedded Website Default State (CRM modifies this script block on export) -->
+  <script id="website-data-script">
+    window.websiteDataDefault = {
+      hero: {
+        tag: "Jordan | Dev & Entrepreneur",
+        title: "Diseñando el<br/>futuro, aprendiendo<br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-[#00f2fe] via-[#ff7a00] to-[#e100ff]'>cada día.</span>",
+        subtitle: "Soy Jordan. Desarrollador, emprendedor y entusiasta de la tecnología. Conecto el diseño gráfico, la potencia de la Blockchain y la inteligencia artificial para construir soluciones digitales.",
+        btn1: "Ver Mis Startups",
+        btn2: "Hablemos",
+        card1_title: "Smart Contracts",
+        card1_num: "Solidity",
+        card1_sub: "Web3 and Tokenomics",
+        card2_title: "AI & LLMs",
+        card2_num: "Python",
+        card2_sub: "Intelligent Workflows",
+        card3_title: "Interactive Frontend",
+        card3_num: "GSAP",
+        card3_sub: "Tailwind & AlpineJS"
+      },
+      tools: {
+        tag: "Mi Stack Tecnológico",
+        title: "¿Qué uso para construir?",
+        description: "Un vistazo a las tecnologías que potencian mis proyectos. Aprendo, aplico y optimizo activamente cada framework para obtener el máximo rendimiento.",
+        percent: 85,
+        percent_sub: "85% de enfoque en Frameworks Modernos",
+        t1_title: "Design",
+        t1_desc: "Figma, Adobe Suite, Prototipado 3D.",
+        t2_title: "Dev",
+        t2_desc: "React, Three.js, GSAP, AlpineJS.",
+        t3_title: "Blockchain & AI",
+        t3_desc: "Solidity, Python, Integración de LLMs.",
+        sched1_title: "Figma / Layouts",
+        sched1_val: "Diario",
+        sched2_title: "React & AlpineJS",
+        sched2_val: "Diario",
+        sched3_title: "Solidity / Contracts",
+        sched3_val: "Semanal",
+        sched4_title: "LLM Integrations",
+        sched4_val: "Activo"
+      },
+      portfolio: {
+        tag: "Proyectos Acabados",
+        title: "Resultados Reales",
+        description: "Aquí expongo el trabajo realizado para clientes activos y colaboraciones destacadas.",
+        projects: [
+          {
+            tag: "Diseño Inmersivo",
+            title: "Vexa Ultra Vision",
+            desc: "Desarrollo de landing inmersiva premium con modelados 3D interactivos, tours virtuales integrados en tiempo real y optimización de carga móvil.",
+            img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+            link: "https://github.com/makebyjordan"
+          },
+          {
+            tag: "Scrollytelling",
+            title: "Tarquis Construcciones",
+            desc: "Experiencia digital corporativa donde los fotogramas y la narrativa se reproducen sincrónicamente con el desplazamiento del scroll, optimizando conversiones.",
+            img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+            link: "https://x.com/makebyjordan"
+          }
+        ]
+      },
+      startups: {
+        tag: "Emprendimiento Activo",
+        title: "Construyendo soluciones propias",
+        description: "No solo desarrollo para otros; incubo ideas. Aquí verás lo que estoy incubando y lanzando al mercado. Módulos impulsados por IA y herramientas descentralizadas.",
+        list: [
+          {
+            title: "Startup 1: OmniAI Agents",
+            sub: "Build #092",
+            desc: "Problema resuelto: Automatización de flujos de trabajo repetitivos y soporte de atención al cliente para PYMEs utilizando agentes LLM autónomos. Beta en fase de pruebas cerradas.",
+            img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+            link: "https://x.com/makebyjordan"
+          },
+          {
+            title: "Startup 2: BlockLedger",
+            sub: "Solidity v1.2",
+            desc: "Valor añadido: Plataforma simplificada de conciliación contable multi-chain en tiempo real. Contratos inteligentes Solidity desplegados en Testnet.",
+            img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
+            link: "https://github.com/makebyjordan"
+          }
+        ],
+        msg_sender: "Obrien (Socio Consultor)",
+        msg_time: "12:58",
+        msg_text: "Jordan, los agentes de OmniAI ya procesan el 94% de las solicitudes sin intervención humana. ¡El valor añadido es brutal!"
+      },
+      contact: {
+        tag: "Colaboraciones y Consultas",
+        title: "¿Trabajamos juntos?",
+        description: "¿Tienes una idea en Blockchain, un desafío de IA o necesitas una web de alto nivel? Conectemos y construyamos el futuro."
+      },
+      socials: {
+        x: "https://x.com/makebyjordan",
+        linkedin: "https://www.linkedin.com/in/makebyjordan/",
+        instagram: "https://instagram.com/makebyjordan",
+        whatsapp: "https://chat.whatsapp.com/LxmPngCOOFE4nuDNm8sAOj?mode=gi_t"
+      }
+    };
+  </script>
+
+  <!-- AlpineJS & GSAP -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+</head>
+<body x-data="{ crmOpen: false, authOpen: false, authCode: '', isAuth: false, activeCrmTab: 'hero', verifyAuthCode() { if(this.authCode === 'joseluis') { this.isAuth = true; this.authOpen = false; this.crmOpen = true; this.authCode = ''; } else { alert('Código incorrecto.'); this.authCode = ''; } } }" x-init="$watch('crmOpen', value => { if(value) { window.lenis?.stop(); document.body.style.overflow = 'hidden'; } else { window.lenis?.start(); document.body.style.overflow = ''; } }); $watch('authOpen', value => { if(value) { window.lenis?.stop(); document.body.style.overflow = 'hidden'; } else if(!crmOpen) { window.lenis?.start(); document.body.style.overflow = ''; } })" class="bg-deep text-[#f1f3f9] min-h-screen relative overflow-x-hidden selection:bg-[#ff007f]/30">
+
+  <!-- Background Decorative Blobs -->
+  <div class="glow-blob w-[500px] h-[500px] bg-purple-900/30 top-10 left-[-10%]"></div>
+  <div class="glow-blob w-[600px] h-[600px] bg-blue-900/20 top-[40%] right-[-10%]"></div>
+  <div class="glow-blob w-[500px] h-[500px] bg-pink-900/15 bottom-10 left-[20%]"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div id="custom-cursor" class="custom-cursor hidden md:block"></div>
+  <div id="custom-cursor-dot" class="custom-cursor-dot hidden md:block"></div>
+
+  <!-- Main Container Layout -->
+  <div class="flex min-h-screen">
+
+    <!-- Left Navigation Sidebar -->
+    <aside class="fixed left-6 top-1/2 -translate-y-1/2 h-[90vh] w-20 bg-sidebar/85 backdrop-blur-xl border border-white/5 rounded-[32px] flex flex-col justify-between items-center py-5 z-50 shadow-2xl transition-all duration-300 hover:border-white/10 hidden md:flex">
+      
+      <!-- Logo/Brand Top Icon -->
+      <a href="#hero" class="w-12 h-12 rounded-2xl overflow-hidden flex items-center justify-center hover:scale-105 transition-transform group" aria-label="Jordan Logo">
+        <img src="media/jordanstarter-logo-v1.jpg" alt="Jordan Logo" class="w-full h-full object-cover">
+      </a>
+
+      <!-- Menu Icons -->
+      <nav class="flex flex-col gap-4 w-full items-center">
+        <!-- Home -->
+        <a href="#hero" class="nav-icon active p-2.5 rounded-2xl text-[#8b92bf] hover:text-[#00f2fe] hover:bg-white/5 transition-all duration-300 relative group" data-sec="hero">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span class="absolute left-24 bg-sidebar text-white text-xs px-3 py-1.5 rounded-lg border border-white/5 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Inicio</span>
+        </a>
+        <!-- Tools (Stack) -->
+        <a href="#tools" class="nav-icon p-2.5 rounded-2xl text-[#8b92bf] hover:text-[#fff000] hover:bg-white/5 transition-all duration-300 relative group" data-sec="tools">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          <span class="absolute left-24 bg-sidebar text-white text-xs px-3 py-1.5 rounded-lg border border-white/5 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Tecnologías</span>
+        </a>
+        <!-- Portfolio -->
+        <a href="#portfolio" class="nav-icon p-2.5 rounded-2xl text-[#8b92bf] hover:text-[#ff7a00] hover:bg-white/5 transition-all duration-300 relative group" data-sec="portfolio">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span class="absolute left-24 bg-sidebar text-white text-xs px-3 py-1.5 rounded-lg border border-white/5 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Portafolio</span>
+        </a>
+        <!-- Startups -->
+        <a href="#startups" class="nav-icon p-2.5 rounded-2xl text-[#8b92bf] hover:text-[#e100ff] hover:bg-white/5 transition-all duration-300 relative group" data-sec="startups">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <span class="absolute left-24 bg-sidebar text-white text-xs px-3 py-1.5 rounded-lg border border-white/5 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Startups</span>
+        </a>
+        <!-- Contact -->
+        <a href="#contact" class="nav-icon p-2.5 rounded-2xl text-[#8b92bf] hover:text-red-500 hover:bg-white/5 transition-all duration-300 relative group" data-sec="contact">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <span class="absolute left-24 bg-sidebar text-white text-xs px-3 py-1.5 rounded-lg border border-white/5 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Mensaje</span>
+        </a>
+
+        <!-- Divider -->
+        <div class="w-8 h-[1px] bg-white/5 my-1"></div>
+
+        <!-- Lock Admin CRM Icon -->
+        <button @click="isAuth ? crmOpen = true : authOpen = true" class="p-2.5 rounded-2xl text-[#8b92bf] hover:text-[#00f2fe] hover:bg-white/5 transition-all duration-300 relative group" aria-label="Abrir CRM">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span class="absolute left-24 bg-sidebar text-white text-xs px-3 py-1.5 rounded-lg border border-white/5 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">CRM Interno</span>
+        </button>
+      </nav>
+
+      <!-- Bottom Social -->
+      <div class="flex flex-col gap-3.5 items-center">
+        <!-- X -->
+        <a :href="$store.websiteData.socials.x" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-white transition-colors" aria-label="X">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a :href="$store.websiteData.socials.instagram" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-white transition-colors" aria-label="Instagram">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a :href="$store.websiteData.socials.linkedin" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <!-- WhatsApp -->
+        <a :href="$store.websiteData.socials.whatsapp" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-white transition-colors" aria-label="WhatsApp">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.012 0C5.398 0 .023 5.375.023 11.99c0 2.112.55 4.17 1.594 5.978L0 24l6.195-1.624c1.748.953 3.71 1.458 5.807 1.46h.01C18.625 23.836 24 18.462 24 11.848c0-3.203-1.25-6.216-3.514-8.48A11.75 11.75 0 0012.012 0zm0 21.84c-1.79 0-3.55-.48-5.09-1.39l-.37-.22-3.77.99 1.01-3.68-.24-.38a9.83 9.83 0 01-1.51-5.16c0-5.43 4.42-9.85 9.85-9.85a9.81 9.81 0 016.97 2.89c2.32 2.33 3.6 5.42 3.6 8.65s-1.28 6.32-3.6 8.65c-2.32 2.33-5.41 3.6-8.65 3.6zm5.38-7.36c-.29-.15-1.74-.86-2.01-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.34.22-.64.07a8.06 8.06 0 01-2.38-1.47 8.87 8.87 0 01-1.64-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.6-.5-.52-.67-.53-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.72.23 1.37.2 1.89.12.58-.08 1.74-.71 1.99-1.4.25-.69.25-1.28.17-1.4-.08-.12-.29-.19-.58-.34z"/></svg>
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- Mobile Top Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 h-16 bg-sidebar/90 backdrop-blur-md border-b border-white/5 flex items-center justify-between px-6 z-50 md:hidden">
+      <span class="font-heading font-black text-lg tracking-tighter">JORDAN <span class="text-[#00f2fe]">PORTAL</span></span>
+      <a href="#contact" class="py-2 px-4 bg-gradient-to-r from-[#ff007f] to-[#7f00ff] text-white text-xs font-bold rounded-xl shadow-lg">Contactar</a>
+    </header>
+
+    <!-- Core Scroll Content Wrapper -->
+    <main class="w-full pl-0 md:pl-32 pr-0 md:pr-8 pt-20 md:pt-0 flex flex-col gap-12 max-w-7xl mx-auto px-4">
+
+      <!-- SECTION 1: HERO / THE TILT CARD SHOWCASE -->
+      <section id="hero" class="scroll-section min-h-[90vh] flex flex-col justify-center gap-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+          
+          <!-- Hero Text -->
+          <div class="lg:col-span-5 flex flex-col justify-center text-left" id="hero-intro-text">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 w-fit mb-6">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#00f2fe] animate-pulse"></span>
+              <span class="text-xs uppercase tracking-widest font-bold text-zinc-400" x-text="$store.websiteData.hero.tag"></span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-heading font-black tracking-tight leading-[1.05] mb-6" x-html="$store.websiteData.hero.title"></h1>
+            <p class="text-zinc-400 text-lg md:text-xl font-light max-w-md leading-relaxed mb-8" x-text="$store.websiteData.hero.subtitle"></p>
+            <div class="flex gap-4">
+              <a href="#startups" class="px-6 py-3.5 bg-white text-black font-semibold rounded-2xl hover:bg-zinc-200 transition-all shadow-xl hover:scale-[1.02]" x-text="$store.websiteData.hero.btn1"></a>
+              <a href="#contact" class="px-6 py-3.5 bg-white/5 border border-white/10 font-semibold rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all" x-text="$store.websiteData.hero.btn2"></a>
+            </div>
+          </div>
+
+          <!-- 3D Card tilt container (Inspired by capture top cards) -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6 tilt-container" id="hero-cards-grid">
+            
+            <!-- Card 1: Blockchain (Pink-Magenta Gradient) -->
+            <div class="tilt-element w-full h-[320px] glow-card-pink rounded-[32px] p-6 flex flex-col justify-between text-white relative overflow-hidden group cursor-pointer">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none"></div>
+              
+              <div class="flex justify-between items-start z-10">
+                <div class="w-12 h-12 rounded-2xl bg-black/15 flex items-center justify-center text-2xl shadow-inner group-hover:scale-110 transition-transform">
+                  🔗
+                </div>
+                <div class="text-xs font-black bg-white/15 px-3 py-1 rounded-full uppercase tracking-wider" x-text="$store.websiteData.hero.card1_num"></div>
+              </div>
+              <div class="z-10 mt-auto">
+                <h3 class="font-heading font-black text-2xl mb-1 tracking-tight" x-text="$store.websiteData.hero.card1_title"></h3>
+                <p class="text-xs text-white/70" x-text="$store.websiteData.hero.card1_sub"></p>
+              </div>
+            </div>
+
+            <!-- Card 2: AI Automation (Orange-Yellow Gradient) -->
+            <div class="tilt-element w-full h-[320px] glow-card-orange rounded-[32px] p-6 flex flex-col justify-between text-white relative overflow-hidden group cursor-pointer sm:translate-y-8">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none"></div>
+              
+              <div class="flex justify-between items-start z-10">
+                <div class="w-12 h-12 rounded-2xl bg-black/15 flex items-center justify-center text-2xl shadow-inner group-hover:scale-110 transition-transform">
+                  🤖
+                </div>
+                <div class="text-xs font-black bg-white/15 px-3 py-1 rounded-full uppercase tracking-wider" x-text="$store.websiteData.hero.card2_num"></div>
+              </div>
+              <div class="z-10 mt-auto">
+                <h3 class="font-heading font-black text-2xl mb-1 tracking-tight" x-text="$store.websiteData.hero.card2_title"></h3>
+                <p class="text-xs text-white/70" x-text="$store.websiteData.hero.card2_sub"></p>
+              </div>
+            </div>
+
+            <!-- Card 3: Interactive UI (Blue-Cyan Gradient) -->
+            <div class="tilt-element w-full h-[320px] glow-card-blue rounded-[32px] p-6 flex flex-col justify-between text-white relative overflow-hidden group cursor-pointer sm:translate-y-16">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none"></div>
+              
+              <div class="flex justify-between items-start z-10">
+                <div class="w-12 h-12 rounded-2xl bg-black/15 flex items-center justify-center text-2xl shadow-inner group-hover:scale-110 transition-transform">
+                  ✨
+                </div>
+                <div class="text-xs font-black bg-white/15 px-3 py-1 rounded-full uppercase tracking-wider" x-text="$store.websiteData.hero.card3_num"></div>
+              </div>
+              <div class="z-10 mt-auto">
+                <h3 class="font-heading font-black text-2xl mb-1 tracking-tight" x-text="$store.websiteData.hero.card3_title"></h3>
+                <p class="text-xs text-white/70" x-text="$store.websiteData.hero.card3_sub"></p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 2: TECH STACK / TOOLS -->
+      <section id="tools" class="scroll-section py-16 flex flex-col justify-center items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full items-stretch">
+          
+          <!-- Description Panel -->
+          <div class="lg:col-span-4 flex flex-col justify-center gap-6" id="stats-intro">
+            <span class="text-xs text-[#fff000] uppercase tracking-widest font-bold" x-text="$store.websiteData.tools.tag"></span>
+            <h2 class="text-4xl md:text-5xl font-heading font-black tracking-tight leading-none" x-text="$store.websiteData.tools.title"></h2>
+            <p class="text-zinc-400 text-base font-light leading-relaxed" x-text="$store.websiteData.tools.description"></p>
+            
+            <div class="flex flex-col gap-4 mt-2">
+              <div class="flex items-start gap-3">
+                <span class="text-xl">🎨</span>
+                <div>
+                  <h4 class="font-bold text-white text-sm" x-text="$store.websiteData.tools.t1_title"></h4>
+                  <p class="text-xs text-zinc-400" x-text="$store.websiteData.tools.t1_desc"></p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-xl">💻</span>
+                <div>
+                  <h4 class="font-bold text-white text-sm" x-text="$store.websiteData.tools.t2_title"></h4>
+                  <p class="text-xs text-zinc-400" x-text="$store.websiteData.tools.t2_desc"></p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-xl">⚙️</span>
+                <div>
+                  <h4 class="font-bold text-white text-sm" x-text="$store.websiteData.tools.t3_title"></h4>
+                  <p class="text-xs text-zinc-400" x-text="$store.websiteData.tools.t3_desc"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Dashboard Panel -->
+          <div class="lg:col-span-8 glass-panel rounded-[32px] p-6 sm:p-8 flex flex-col justify-between gap-8 relative overflow-hidden" id="stats-dashboard">
+            <div class="absolute top-[-50px] right-[-50px] w-64 h-64 bg-[#fff000]/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="flex justify-between items-center border-b border-white/5 pb-4">
+              <div class="flex items-center gap-2">
+                <span class="text-lg font-heading font-bold text-white">STACK PERFORMANCE</span>
+                <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </div>
+              <div class="flex gap-4 text-xs text-zinc-400">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#1b2347]"></span>Frecuencia</span>
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#fff000]"></span>Uso Principal</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              
+              <!-- Stack Schedule Grid -->
+              <div class="bg-black/25 rounded-2xl border border-white/5 p-4 flex flex-col gap-4">
+                <div class="flex justify-between items-center text-sm font-heading font-bold">
+                  <span class="text-zinc-500">Design</span>
+                  <span class="text-[#00f2fe]">Development</span>
+                  <span class="text-zinc-500">Web3 & AI</span>
+                </div>
+                <div class="flex flex-col gap-2.5 text-xs text-zinc-300">
+                  <div class="flex justify-between items-center py-1 border-b border-white/5">
+                    <span x-text="$store.websiteData.tools.sched1_title"></span>
+                    <span class="text-[#fff000] font-bold" x-text="$store.websiteData.tools.sched1_val"></span>
+                  </div>
+                  <div class="flex justify-between items-center py-1 border-b border-white/5">
+                    <span x-text="$store.websiteData.tools.sched2_title"></span>
+                    <span class="text-[#fff000] font-bold" x-text="$store.websiteData.tools.sched2_val"></span>
+                  </div>
+                  <div class="flex justify-between items-center py-1 border-b border-white/5">
+                    <span x-text="$store.websiteData.tools.sched3_title"></span>
+                    <span class="text-[#00f2fe] font-bold" x-text="$store.websiteData.tools.sched3_val"></span>
+                  </div>
+                  <div class="flex justify-between items-center py-1">
+                    <span x-text="$store.websiteData.tools.sched4_title"></span>
+                    <span class="text-[#e100ff] font-bold" x-text="$store.websiteData.tools.sched4_val"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Circle Radial Progress -->
+              <div class="flex flex-col items-center justify-center gap-4 py-4 relative">
+                <div class="relative w-36 h-36 flex items-center justify-center">
+                  <svg class="w-full h-full transform -rotate-90">
+                    <circle class="text-[#13172d]" stroke-width="10" stroke="currentColor" fill="transparent" r="54" cx="72" cy="72"/>
+                    <circle id="radial-progress-bar" class="text-[#fff000] progress-ring__circle" stroke-width="10" stroke-dasharray="339.29" stroke-dashoffset="339.29" stroke-linecap="round" stroke="currentColor" fill="transparent" r="54" cx="72" cy="72"/>
+                  </svg>
+                  <div class="absolute flex flex-col items-center justify-center text-center">
+                    <span class="text-3xl font-heading font-black text-white" id="radial-percent-text">0%</span>
+                    <span class="text-[9px] uppercase tracking-wider text-zinc-500 font-bold mt-1">Uso de Stack</span>
+                  </div>
+                </div>
+                <p class="text-xs text-zinc-400 text-center max-w-[200px]" x-text="$store.websiteData.tools.percent_sub"></p>
+              </div>
+
+            </div>
+
+            <!-- Bottom Line Chart & Labels -->
+            <div class="flex flex-col gap-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold text-zinc-500 uppercase">EXCLUSIVE LABEL</span>
+                <div class="flex gap-2">
+                  <span class="text-[10px] font-bold px-3 py-1 bg-[#13172d] border border-white/5 rounded-full text-[#00f2fe]">Design</span>
+                  <span class="text-[10px] font-bold px-3 py-1 bg-[#13172d] border border-white/5 rounded-full text-[#ff7a00]">Dev</span>
+                  <span class="text-[10px] font-bold px-3 py-1 bg-[#13172d] border border-white/5 rounded-full text-[#e100ff]">Web3 & AI</span>
+                </div>
+              </div>
+              
+              <!-- Draw Line Chart SVG -->
+              <div class="w-full h-16 relative">
+                <svg class="w-full h-full" viewBox="0 0 500 50" preserveAspectRatio="none">
+                  <path id="sparkline-path" d="M0,45 Q62,38 125,25 T250,32 T375,10 T500,28" fill="none" stroke="url(#sparkline-gradient)" stroke-width="3" stroke-linecap="round"/>
+                  <defs>
+                    <linearGradient id="sparkline-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#00f2fe" />
+                      <stop offset="50%" stop-color="#ff7a00" />
+                      <stop offset="100%" stop-color="#e100ff" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 3: PORTFOLIO SHOWCASE -->
+      <section id="portfolio" class="scroll-section py-16">
+        <div class="w-full flex flex-col gap-8">
+          <div class="flex justify-between items-end border-b border-white/5 pb-4">
+            <div>
+              <span class="text-xs text-[#ff7a00] uppercase tracking-widest font-bold" x-text="$store.websiteData.portfolio.tag"></span>
+              <h2 class="text-3xl md:text-5xl font-heading font-extrabold tracking-tight mt-1" x-text="$store.websiteData.portfolio.title"></h2>
+            </div>
+            <p class="text-sm text-zinc-400 hidden sm:block" x-text="$store.websiteData.portfolio.description"></p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <template x-for="(project, index) in $store.websiteData.portfolio.projects" :key="index">
+              <div class="glass-panel rounded-[32px] p-8 flex flex-col gap-6 group hover:translate-y-[-4px]">
+                <div class="w-full h-56 rounded-2xl bg-gradient-to-tr from-purple-900/50 to-pink-900/30 border border-white/5 relative overflow-hidden flex items-center justify-center">
+                  <a :href="project.link || '#'" :target="project.link ? '_blank' : '_self'" :rel="project.link ? 'noopener noreferrer' : ''" class="w-full h-full block">
+                    <img x-show="project.img" :src="project.img || ''" alt="Project Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div x-show="!project.img" class="w-full h-full flex items-center justify-center">
+                      <span class="text-6xl group-hover:scale-110 transition-transform" x-text="index % 2 === 0 ? '👁️' : '⚡'"></span>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <span class="text-xs text-rose-500 uppercase tracking-widest font-bold" x-text="project.tag"></span>
+                  <h3 class="text-2xl font-bold mt-1 text-white group-hover:text-[#ff007f] transition-colors">
+                    <a :href="project.link || '#'" :target="project.link ? '_blank' : '_self'" :rel="project.link ? 'noopener noreferrer' : ''" class="hover:underline flex items-center gap-2 justify-between">
+                      <span x-text="project.title"></span>
+                      <template x-if="project.link">
+                        <svg class="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                      </template>
+                    </a>
+                  </h3>
+                  <p class="text-zinc-400 text-sm mt-3 leading-relaxed" x-text="project.desc"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: STARTUPS EN MARCHA -->
+      <section id="startups" class="scroll-section py-16 flex flex-col justify-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full items-stretch">
+          
+          <!-- Section info left -->
+          <div class="lg:col-span-5 flex flex-col justify-center gap-6" id="chat-intro">
+            <span class="text-xs text-[#e100ff] uppercase tracking-widest font-bold" x-text="$store.websiteData.startups.tag"></span>
+            <h2 class="text-4xl md:text-5xl font-heading font-black tracking-tight leading-none" x-text="$store.websiteData.startups.title"></h2>
+            <p class="text-zinc-400 text-base font-light leading-relaxed" x-text="$store.websiteData.startups.description"></p>
+            
+            <!-- Bottom Voice player -->
+            <div class="bg-black/20 border border-white/5 rounded-2xl p-4 flex flex-col gap-3">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-zinc-500 font-bold">Product Incubator Node 6</span>
+                <div class="flex -space-x-2">
+                  <span class="w-6 h-6 rounded-full bg-purple-700 text-[8px] font-bold flex items-center justify-center border border-deep">JD</span>
+                  <span class="w-6 h-6 rounded-full bg-blue-700 text-[8px] font-bold flex items-center justify-center border border-deep">AI</span>
+                  <span class="w-6 h-6 rounded-full bg-zinc-700 text-[8px] font-bold flex items-center justify-center border border-deep">+2</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="flex items-end gap-1 h-8 w-32">
+                  <div class="wave-bar h-3"></div>
+                  <div class="wave-bar h-6"></div>
+                  <div class="wave-bar h-8"></div>
+                  <div class="wave-bar h-4"></div>
+                  <div class="wave-bar h-7"></div>
+                  <div class="wave-bar h-2"></div>
+                  <div class="wave-bar h-5"></div>
+                  <div class="wave-bar h-8"></div>
+                </div>
+                <span class="text-xs text-[#8b92bf] font-black">Startup Logs</span>
+                <div class="flex gap-2 ml-auto">
+                  <button class="p-2 rounded-xl bg-white/5 text-[#8b92bf] hover:text-white" aria-label="Mic">🎙️</button>
+                  <button class="p-2 rounded-xl bg-white/5 text-[#8b92bf] hover:text-white" aria-label="Audio">🎧</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat List Panel -->
+          <div class="lg:col-span-7 glass-panel rounded-[32px] p-6 sm:p-8 flex flex-col gap-6 relative" id="chat-dashboard">
+            <div class="flex items-center justify-between border-b border-white/5 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-indigo-900 border border-white/10 flex items-center justify-center font-bold text-white text-xs">🚀</div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Startup Monitor</h4>
+                  <p class="text-[10px] text-[#e100ff] uppercase tracking-wider font-bold">Active incubation progress</p>
+                </div>
+              </div>
+              <span class="px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-bold rounded-full uppercase tracking-wider">
+                Live Build
+              </span>
+            </div>
+
+            <!-- Conversations Stack -->
+            <div class="flex flex-col gap-4 overflow-y-auto max-h-[420px] pr-2" id="chat-messages-container" data-lenis-prevent>
+              
+              <template x-for="(startup, index) in $store.websiteData.startups.list" :key="index">
+                <div class="chat-message-row flex gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 transition-colors duration-300">
+                  <a :href="startup.link || '#'" :target="startup.link ? '_blank' : '_self'" :rel="startup.link ? 'noopener noreferrer' : ''" class="w-10 h-10 rounded-full overflow-hidden border border-white/10 flex items-center justify-center flex-shrink-0 bg-[#e100ff]/20 text-xs font-bold hover:scale-105 transition-transform duration-300">
+                    <img x-show="startup.img" :src="startup.img || ''" alt="Startup Logo" class="w-full h-full object-cover">
+                    <span x-show="!startup.img" x-text="index % 2 === 0 ? '🤖' : '⛓️'"></span>
+                  </a>
+                  <div class="flex-grow">
+                    <div class="flex justify-between items-center">
+                      <span class="font-bold text-sm text-white hover:text-[#e100ff] transition-colors">
+                        <a :href="startup.link || '#'" :target="startup.link ? '_blank' : '_self'" :rel="startup.link ? 'noopener noreferrer' : ''" class="flex items-center gap-1.5 hover:underline">
+                          <span x-text="startup.title"></span>
+                          <template x-if="startup.link">
+                            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                          </template>
+                        </a>
+                      </span>
+                      <span class="text-[10px] text-zinc-500 font-bold" x-text="startup.sub"></span>
+                    </div>
+                    <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed" x-html="startup.desc"></p>
+                    
+                    <!-- Attachment Card -->
+                    <div x-show="startup.img || startup.link" class="mt-4 border border-white/5 bg-black/25 rounded-2xl overflow-hidden hover:border-white/10 transition-all duration-300">
+                      <a :href="startup.link || '#'" :target="startup.link ? '_blank' : '_self'" :rel="startup.link ? 'noopener noreferrer' : ''" class="block group/card">
+                        <!-- Image part of the card -->
+                        <div x-show="startup.img" class="w-full h-32 overflow-hidden relative border-b border-white/5">
+                          <img :src="startup.img || ''" alt="Startup Preview" class="w-full h-full object-cover group-hover/card:scale-[1.02] transition-transform duration-500">
+                          <div x-show="startup.link" class="absolute inset-0 bg-black/40 opacity-0 group-hover/card:opacity-100 transition-opacity flex-opacity flex items-center justify-center">
+                            <span class="text-xs bg-white text-black font-extrabold px-3 py-1.5 rounded-lg shadow-lg">Visitar Sitio ↗</span>
+                          </div>
+                        </div>
+                        <!-- Text / URL part of the card -->
+                        <div class="p-3 flex justify-between items-center gap-3 bg-black/10">
+                          <div class="overflow-hidden">
+                            <p class="text-xs font-bold text-white truncate" x-text="startup.title + ' Preview'"></p>
+                            <p class="text-[10px] text-zinc-500 truncate" x-text="startup.link || 'Sin enlace'"></p>
+                          </div>
+                          <template x-if="startup.link">
+                            <div class="w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center text-zinc-400 group-hover/card:bg-[#e100ff]/20 group-hover/card:text-white transition-colors flex-shrink-0">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </div>
+                          </template>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <!-- Message: VIP Contributor -->
+              <div class="chat-message-row flex gap-4 p-4 rounded-2xl bg-[#1d2347] border border-[#ff007f]/30 shadow-[0_0_25px_rgba(255,0,127,0.15)] transition-colors duration-300 transform scale-[1.02]" id="obrien-message">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#ff007f] to-[#7f00ff] text-xs font-bold flex items-center justify-center flex-shrink-0 text-white">VIP</div>
+                <div class="flex-grow">
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-sm text-white" x-text="$store.websiteData.startups.msg_sender"></span>
+                    <span class="text-[10px] text-[#00f2fe] font-black" x-text="$store.websiteData.startups.msg_time"></span>
+                  </div>
+                  <p class="text-xs text-white/90 mt-1.5 leading-relaxed font-medium" x-text="$store.websiteData.startups.msg_text"></p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTACT CONSOLE -->
+      <section id="contact" class="scroll-section py-16 flex flex-col justify-center items-center">
+        <div class="w-full max-w-3xl glass-panel rounded-[32px] p-8 sm:p-12 relative overflow-hidden flex flex-col gap-8" id="contact-container">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00f2fe] via-[#ff7a00] to-[#e100ff]"></div>
+
+          <div class="text-center flex flex-col gap-3">
+            <span class="text-xs text-[#00f2fe] uppercase tracking-widest font-bold" x-text="$store.websiteData.contact.tag"></span>
+            <h2 class="text-3xl md:text-5xl font-heading font-black tracking-tight text-white" x-text="$store.websiteData.contact.title"></h2>
+            <p class="text-zinc-400 text-sm max-w-lg mx-auto leading-relaxed" x-text="$store.websiteData.contact.description"></p>
+          </div>
+
+          <!-- Glowing Input Form -->
+          <form class="flex flex-col gap-6 w-full" id="contact-form">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label for="name" class="text-xs text-zinc-500 font-bold uppercase tracking-wider pl-1">Nombre</label>
+                <input type="text" id="name" placeholder="Ingresa tu nombre" class="bg-black/25 text-sm text-white border border-white/5 rounded-2xl py-4 px-5 focus:outline-none focus:border-[#00f2fe] focus:shadow-[0_0_15px_rgba(0,242,254,0.15)] transition-all" required>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="email" class="text-xs text-zinc-500 font-bold uppercase tracking-wider pl-1">Email</label>
+                <input type="email" id="email" placeholder="tucorreo@empresa.com" class="bg-black/25 text-sm text-white border border-white/5 rounded-2xl py-4 px-5 focus:outline-none focus:border-[#ff7a00] focus:shadow-[0_0_15px_rgba(255,122,0,0.15)] transition-all" required>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="message" class="text-xs text-zinc-500 font-bold uppercase tracking-wider pl-1">Proyecto / Consulta</label>
+              <textarea id="message" rows="4" placeholder="Escribe aquí tu propuesta o proyecto..." class="bg-black/25 text-sm text-white border border-white/5 rounded-2xl py-4 px-5 focus:outline-none focus:border-[#e100ff] focus:shadow-[0_0_15px_rgba(225,0,255,0.15)] transition-all" required></textarea>
+            </div>
+
+            <div class="flex items-center gap-4 mt-2">
+              <button type="submit" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#00f2fe] via-[#ff7a00] to-[#e100ff] text-white font-bold rounded-2xl hover:scale-[1.02] active:scale-95 transition-all text-center tracking-wide uppercase text-xs">
+                Enviar Mensaje &rarr;
+              </button>
+              <span class="text-[10px] text-zinc-500 hidden sm:block">Al enviar, aceptas recibir respuestas de Jordan.</span>
+            </div>
+          </form>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="py-12 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs text-zinc-500">
+        <div>
+          <span class="font-heading font-black text-white text-sm">JORDAN</span> &copy; 2026. Alumno de por vida.
+        </div>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Aviso Legal</a>
+          <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+          <a href="#" class="hover:text-white transition-colors">Cookies</a>
+        </div>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- AUTHENTICATION DIALOG POPUP -->
+  <div x-show="authOpen" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/60 backdrop-blur-md" style="display: none;" x-transition>
+    <div class="glass-panel w-full max-w-sm rounded-[32px] p-8 relative flex flex-col gap-6" @click.outside="authOpen = false">
+      <div class="text-center flex flex-col gap-2">
+        <span class="text-xs text-[#00f2fe] uppercase tracking-widest font-bold">Acceso Protegido</span>
+        <h3 class="text-xl font-heading font-black text-white">Ingrese Código CRM</h3>
+      </div>
+      <div class="flex flex-col gap-2">
+        <input type="password" x-model="authCode" placeholder="Código de acceso" class="bg-black/40 text-center text-sm text-white border border-white/5 rounded-2xl py-3 px-4 focus:outline-none focus:border-[#00f2fe]" @keydown.enter="verifyAuthCode()">
+      </div>
+      <div class="flex gap-4">
+        <button @click="authOpen = false" class="flex-grow py-3 bg-white/5 border border-white/10 rounded-2xl text-xs font-bold hover:bg-white/10">Cancelar</button>
+        <button @click="verifyAuthCode()" class="flex-grow py-3 bg-gradient-to-r from-[#00f2fe] to-[#ff7a00] text-white rounded-2xl text-xs font-bold hover:scale-[1.02] active:scale-95 transition-all">Verificar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN CRM CONTROLS DASHBOARD OVERLAY -->
+  <div x-show="crmOpen" class="fixed inset-0 z-[100] bg-deep/95 backdrop-blur-2xl p-6 sm:p-12 flex flex-col gap-8 h-screen overflow-hidden" style="display: none;" x-transition data-lenis-prevent>
+    
+    <!-- Top Control actions bar -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/10 pb-6">
+      <div>
+        <span class="text-xs text-[#00f2fe] uppercase tracking-widest font-bold">Panel Administrativo</span>
+        <h2 class="text-3xl font-heading font-black text-white">Jordan Portal CRM</h2>
+      </div>
+      <div class="flex flex-wrap gap-3 w-full sm:w-auto">
+        <!-- Save button -->
+        <button @click="window.saveWebsiteData($store.websiteData)" class="px-5 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-black font-extrabold rounded-2xl text-xs uppercase tracking-wider transition-all">
+          Guardar Cambios
+        </button>
+        <!-- Export HTML button -->
+        <button @click="exportUpdatedHTML()" class="px-5 py-3 bg-[#00f2fe] hover:bg-[#00d0fe] text-black font-extrabold rounded-2xl text-xs uppercase tracking-wider transition-all">
+          Exportar index.html
+        </button>
+        <!-- Restore default button -->
+        <button @click="if(confirm('¿Estás seguro de restablecer todos los valores por defecto?')) { localStorage.removeItem('jordan_portal_data'); window.location.reload(); }" class="px-5 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-2xl text-xs uppercase tracking-wider transition-all">
+          Restablecer
+        </button>
+        <!-- Close CRM -->
+        <button @click="crmOpen = false" class="px-5 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-2xl text-xs uppercase tracking-wider transition-all">
+          Cerrar CRM
+        </button>
+      </div>
+    </div>
+
+    <!-- CRM content layout (sidebar tabs + form fields) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 flex-grow">
+      
+      <!-- Left sidebar categories -->
+      <div class="lg:col-span-3 flex flex-row lg:flex-col gap-2 bg-black/20 border border-white/5 rounded-2xl p-3 h-fit flex-wrap">
+        <button @click="activeCrmTab = 'hero'" :class="activeCrmTab === 'hero' ? 'bg-[#00f2fe] text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 1: Hero</button>
+        <button @click="activeCrmTab = 'tools'" :class="activeCrmTab === 'tools' ? 'bg-[#fff000] text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 2: Stack (Tools)</button>
+        <button @click="activeCrmTab = 'portfolio'" :class="activeCrmTab === 'portfolio' ? 'bg-[#ff7a00] text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 3: Portafolio</button>
+        <button @click="activeCrmTab = 'startups'" :class="activeCrmTab === 'startups' ? 'bg-[#e100ff] text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 4: Startups</button>
+        <button @click="activeCrmTab = 'contact'" :class="activeCrmTab === 'contact' ? 'bg-red-500 text-white font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 5: Contacto</button>
+        <button @click="activeCrmTab = 'socials'" :class="activeCrmTab === 'socials' ? 'bg-white text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sociales / Enlaces</button>
+      </div>
+
+      <!-- Right form inputs pane -->
+      <div class="lg:col-span-9 bg-black/10 border border-white/5 rounded-3xl p-6 sm:p-8 overflow-y-auto h-[60vh] md:h-[68vh] flex flex-col gap-6">
+        
+        <!-- Tab: HERO -->
+        <div x-show="activeCrmTab === 'hero'" class="flex flex-col gap-6">
+          <h3 class="text-lg font-heading font-bold text-[#00f2fe] border-b border-white/5 pb-2">Configuración del Hero</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Etiqueta Superior</label>
+              <input type="text" x-model="$store.websiteData.hero.tag" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Título Principal (HTML permitido)</label>
+              <input type="text" x-model="$store.websiteData.hero.title" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Subtítulo Descriptivo</label>
+            <textarea x-model="$store.websiteData.hero.subtitle" rows="3" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none"></textarea>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Botón Principal</label>
+              <input type="text" x-model="$store.websiteData.hero.btn1" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Botón Secundario</label>
+              <input type="text" x-model="$store.websiteData.hero.btn2" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+          <!-- Card 3D edits -->
+          <h4 class="text-sm font-bold text-white mt-4 border-b border-white/5 pb-1">Valores de las Tarjetas 3D</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-black/20 p-4 rounded-xl border border-white/5 flex flex-col gap-3">
+              <span class="text-xs text-pink-500 font-bold">Tarjeta 1 (Rosa)</span>
+              <input type="text" x-model="$store.websiteData.hero.card1_num" placeholder="Num / Stack" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.hero.card1_title" placeholder="Título" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.hero.card1_sub" placeholder="Subtexto" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+            </div>
+            <div class="bg-black/20 p-4 rounded-xl border border-white/5 flex flex-col gap-3">
+              <span class="text-xs text-orange-500 font-bold">Tarjeta 2 (Naranja)</span>
+              <input type="text" x-model="$store.websiteData.hero.card2_num" placeholder="Num / Stack" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.hero.card2_title" placeholder="Título" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.hero.card2_sub" placeholder="Subtexto" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+            </div>
+            <div class="bg-black/20 p-4 rounded-xl border border-white/5 flex flex-col gap-3">
+              <span class="text-xs text-cyan-400 font-bold">Tarjeta 3 (Azul)</span>
+              <input type="text" x-model="$store.websiteData.hero.card3_num" placeholder="Num / Stack" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.hero.card3_title" placeholder="Título" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.hero.card3_sub" placeholder="Subtexto" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: TOOLS -->
+        <div x-show="activeCrmTab === 'tools'" class="flex flex-col gap-6" style="display: none;">
+          <h3 class="text-lg font-heading font-bold text-[#fff000] border-b border-white/5 pb-2">Configuración de Tecnologías (Stack)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Etiqueta Superior</label>
+              <input type="text" x-model="$store.websiteData.tools.tag" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Título de la Sección</label>
+              <input type="text" x-model="$store.websiteData.tools.title" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Descripción de la Sección</label>
+            <textarea x-model="$store.websiteData.tools.description" rows="3" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none"></textarea>
+          </div>
+          <!-- Percentage mastery -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Porcentaje de Uso Radial (0-100)</label>
+              <input type="number" x-model.number="$store.websiteData.tools.percent" min="0" max="100" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Etiqueta de Progreso</label>
+              <input type="text" x-model="$store.websiteData.tools.percent_sub" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+          <!-- Block edits -->
+          <h4 class="text-sm font-bold text-white mt-4 border-b border-white/5 pb-1">Bloques del Stack</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-black/20 p-4 rounded-xl border border-white/5 flex flex-col gap-3">
+              <span class="text-xs text-yellow-400 font-bold">Bloque 1 (Design)</span>
+              <input type="text" x-model="$store.websiteData.tools.t1_title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <textarea x-model="$store.websiteData.tools.t1_desc" rows="2" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none"></textarea>
+            </div>
+            <div class="bg-black/20 p-4 rounded-xl border border-white/5 flex flex-col gap-3">
+              <span class="text-xs text-yellow-400 font-bold">Bloque 2 (Dev)</span>
+              <input type="text" x-model="$store.websiteData.tools.t2_title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <textarea x-model="$store.websiteData.tools.t2_desc" rows="2" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none"></textarea>
+            </div>
+            <div class="bg-black/20 p-4 rounded-xl border border-white/5 flex flex-col gap-3">
+              <span class="text-xs text-yellow-400 font-bold">Bloque 3 (Blockchain & AI)</span>
+              <input type="text" x-model="$store.websiteData.tools.t3_title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+              <textarea x-model="$store.websiteData.tools.t3_desc" rows="2" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none"></textarea>
+            </div>
+          </div>
+          <!-- Schedule tasks edits -->
+          <h4 class="text-sm font-bold text-white mt-4 border-b border-white/5 pb-1">Frecuencia de Actividad</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex gap-2">
+              <input type="text" x-model="$store.websiteData.tools.sched1_title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 w-1/2 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.tools.sched1_val" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 w-1/2 focus:outline-none">
+            </div>
+            <div class="flex gap-2">
+              <input type="text" x-model="$store.websiteData.tools.sched2_title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 w-1/2 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.tools.sched2_val" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 w-1/2 focus:outline-none">
+            </div>
+            <div class="flex gap-2">
+              <input type="text" x-model="$store.websiteData.tools.sched3_title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 w-1/2 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.tools.sched3_val" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 w-1/2 focus:outline-none">
+            </div>
+            <div class="flex gap-2">
+              <input type="text" x-model="$store.websiteData.tools.sched4_title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 w-1/2 focus:outline-none">
+              <input type="text" x-model="$store.websiteData.tools.sched4_val" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 w-1/2 focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: PORTFOLIO -->
+        <div x-show="activeCrmTab === 'portfolio'" class="flex flex-col gap-6" style="display: none;">
+          <h3 class="text-lg font-heading font-bold text-[#ff7a00] border-b border-white/5 pb-2">Configuración del Portafolio</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Etiqueta Superior</label>
+              <input type="text" x-model="$store.websiteData.portfolio.tag" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Título de la Sección</label>
+              <input type="text" x-model="$store.websiteData.portfolio.title" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Descripción Corta</label>
+            <input type="text" x-model="$store.websiteData.portfolio.description" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+          </div>
+          
+          <h4 class="text-sm font-bold text-white mt-4 border-b border-white/5 pb-1">Proyectos</h4>
+          
+          <!-- Loop to edit portfolio projects -->
+          <div class="flex flex-col gap-6">
+            <template x-for="(project, index) in $store.websiteData.portfolio.projects" :key="index">
+              <div class="bg-black/25 p-5 rounded-2xl border border-white/5 flex flex-col gap-4 relative">
+                <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span class="text-xs font-bold text-orange-500" x-text="'Proyecto #' + (index + 1)"></span>
+                  <!-- Delete button -->
+                  <button @click="$store.websiteData.portfolio.projects.splice(index, 1)" class="text-xs bg-red-600/20 text-red-400 hover:bg-red-600 hover:text-white px-3 py-1 rounded-lg transition-colors">
+                    Eliminar
+                  </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Etiqueta/Categoría</label>
+                    <input type="text" x-model="project.tag" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Título del Proyecto</label>
+                    <input type="text" x-model="project.title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">URL de Imagen</label>
+                    <input type="url" x-model="project.img" placeholder="https://images.unsplash.com/..." class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">URL de Enlace (Abrir en pestaña nueva)</label>
+                    <input type="url" x-model="project.link" placeholder="https://..." class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Descripción</label>
+                  <textarea x-model="project.desc" rows="2" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none"></textarea>
+                </div>
+              </div>
+            </template>
+            <!-- Add button -->
+            <button @click="$store.websiteData.portfolio.projects.push({ tag: 'Nuevo', title: 'Nuevo Proyecto', desc: 'Descripción del proyecto...', img: '', link: '' })" class="py-3 bg-white/5 border border-dashed border-white/10 hover:bg-white/10 rounded-2xl text-xs font-bold text-center text-zinc-300">
+              + Añadir Proyecto
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab: STARTUPS -->
+        <div x-show="activeCrmTab === 'startups'" class="flex flex-col gap-6" style="display: none;">
+          <h3 class="text-lg font-heading font-bold text-[#e100ff] border-b border-white/5 pb-2">Configuración de Startups en Marcha</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Etiqueta Superior</label>
+              <input type="text" x-model="$store.websiteData.startups.tag" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Título de la Sección</label>
+              <input type="text" x-model="$store.websiteData.startups.title" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Descripción de la Sección</label>
+            <textarea x-model="$store.websiteData.startups.description" rows="3" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none"></textarea>
+          </div>
+          
+          <h4 class="text-sm font-bold text-white mt-4 border-b border-white/5 pb-1">Proyectos Incubados (Logs de Consola)</h4>
+          
+          <!-- Loop to edit startups list -->
+          <div class="flex flex-col gap-6">
+            <template x-for="(startup, index) in $store.websiteData.startups.list" :key="index">
+              <div class="bg-black/25 p-5 rounded-2xl border border-white/5 flex flex-col gap-4 relative">
+                <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span class="text-xs font-bold text-[#e100ff]" x-text="'Startup #' + (index + 1)"></span>
+                  <!-- Delete button -->
+                  <button @click="$store.websiteData.startups.list.splice(index, 1)" class="text-xs bg-red-600/20 text-red-400 hover:bg-red-600 hover:text-white px-3 py-1 rounded-lg transition-colors">
+                    Eliminar
+                  </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Nombre / Versión</label>
+                    <input type="text" x-model="startup.title" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Subheadline / Build</label>
+                    <input type="text" x-model="startup.sub" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">URL de Imagen</label>
+                    <input type="url" x-model="startup.img" placeholder="https://images.unsplash.com/..." class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">URL de Enlace (Abrir en pestaña nueva)</label>
+                    <input type="url" x-model="startup.link" placeholder="https://..." class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Descripción (HTML permitido)</label>
+                  <textarea x-model="startup.desc" rows="2" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none"></textarea>
+                </div>
+              </div>
+            </template>
+            <!-- Add button -->
+            <button @click="$store.websiteData.startups.list.push({ title: 'Nueva Startup', sub: 'Build #001', desc: 'Descripción corta...', img: '', link: '' })" class="py-3 bg-white/5 border border-dashed border-white/10 hover:bg-white/10 rounded-2xl text-xs font-bold text-center text-zinc-300">
+              + Añadir Startup
+            </button>
+          </div>
+
+          <h4 class="text-sm font-bold text-white mt-4 border-b border-white/5 pb-1">Mensaje Destacado (Simulador de Chat)</h4>
+          <div class="bg-black/20 p-4 rounded-xl border border-white/5 flex flex-col gap-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" x-model="$store.websiteData.startups.msg_sender" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none" placeholder="Emisor">
+              <input type="text" x-model="$store.websiteData.startups.msg_time" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none" placeholder="Hora">
+            </div>
+            <textarea x-model="$store.websiteData.startups.msg_text" rows="2" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none" placeholder="Mensaje"></textarea>
+          </div>
+        </div>
+
+        <!-- Tab: CONTACT -->
+        <div x-show="activeCrmTab === 'contact'" class="flex flex-col gap-6" style="display: none;">
+          <h3 class="text-lg font-heading font-bold text-red-500 border-b border-white/5 pb-2">Configuración del Bloque de Contacto</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Etiqueta Superior</label>
+              <input type="text" x-model="$store.websiteData.contact.tag" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Título Principal</label>
+              <input type="text" x-model="$store.websiteData.contact.title" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Descripción del Bloque</label>
+            <textarea x-model="$store.websiteData.contact.description" rows="3" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none"></textarea>
+          </div>
+        </div>
+
+        <!-- Tab: SOCIALS -->
+        <div x-show="activeCrmTab === 'socials'" class="flex flex-col gap-6" style="display: none;">
+          <h3 class="text-lg font-heading font-bold text-white border-b border-white/5 pb-2">Enlaces de Redes Sociales</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Enlace X (Twitter)</label>
+              <input type="url" x-model="$store.websiteData.socials.x" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Enlace LinkedIn</label>
+              <input type="url" x-model="$store.websiteData.socials.linkedin" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Enlace Instagram</label>
+              <input type="url" x-model="$store.websiteData.socials.instagram" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Enlace WhatsApp</label>
+              <input type="url" x-model="$store.websiteData.socials.whatsapp" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
