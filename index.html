@@ -117,6 +117,22 @@
         title: "¿Trabajamos juntos?",
         description: "¿Tienes una idea en Blockchain, un desafío de IA o necesitas una web de alto nivel? Conectemos y construyamos el futuro."
       },
+      blog: {
+        tag: "Pensamientos y Tutoriales",
+        title: "Bitácora de Jordan",
+        description: "Comparto mis reflexiones sobre desarrollo web, inteligencia artificial y mis aprendizajes diarios.",
+        posts: [
+          {
+            id: "primer-articulo",
+            titulo: "El futuro de los Agentes de IA",
+            slogan: "Cómo los LLMs autónomos están cambiando el desarrollo de software.",
+            fecha: "2026-06-05",
+            img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+            imgMaxWidth: "600px",
+            content: "Los **agentes de IA** no son solo bots de chat. Son sistemas capaces de tomar decisiones, planificar tareas y ejecutar código de manera autónoma.\n\n### ¿Por qué son el futuro?\n1. **Autonomía**: Pueden resolver problemas complejos sin intervención constante.\n2. **Integración**: Se conectan con APIs externas y bases de datos.\n3. **Adaptabilidad**: Aprenden del contexto.\n\n> \"El verdadero potencial de la IA se liberará cuando la dejemos actuar por sí misma.\"\n\nEste es un ejemplo de artículo escrito en **Markdown** que se renderiza dinámicamente con estilos cyber-glowing hermosos."
+          }
+        ]
+      },
       socials: {
         x: "https://x.com/makebyjordan",
         linkedin: "https://www.linkedin.com/in/makebyjordan/",
@@ -131,8 +147,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <!-- Marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
-<body x-data="{ crmOpen: false, authOpen: false, authCode: '', isAuth: false, activeCrmTab: 'hero', verifyAuthCode() { if(this.authCode === 'joseluis') { this.isAuth = true; this.authOpen = false; this.crmOpen = true; this.authCode = ''; } else { alert('Código incorrecto.'); this.authCode = ''; } } }" x-init="$watch('crmOpen', value => { if(value) { window.lenis?.stop(); document.body.style.overflow = 'hidden'; } else { window.lenis?.start(); document.body.style.overflow = ''; } }); $watch('authOpen', value => { if(value) { window.lenis?.stop(); document.body.style.overflow = 'hidden'; } else if(!crmOpen) { window.lenis?.start(); document.body.style.overflow = ''; } })" class="bg-deep text-[#f1f3f9] min-h-screen relative overflow-x-hidden selection:bg-[#ff007f]/30">
+<body x-data="{ crmOpen: false, authOpen: false, authCode: '', isAuth: false, activeCrmTab: 'hero', readerOpen: false, activePost: null, verifyAuthCode() { if(this.authCode === 'joseluis') { this.isAuth = true; this.authOpen = false; this.crmOpen = true; this.authCode = ''; } else { alert('Código incorrecto.'); this.authCode = ''; } } }" x-init="$watch('crmOpen', value => { if(value) { window.lenis?.stop(); document.body.style.overflow = 'hidden'; } else { window.lenis?.start(); document.body.style.overflow = ''; } }); $watch('authOpen', value => { if(value) { window.lenis?.stop(); document.body.style.overflow = 'hidden'; } else if(!crmOpen) { window.lenis?.start(); document.body.style.overflow = ''; } }); $watch('readerOpen', value => { if(value) { window.lenis?.stop(); document.body.style.overflow = 'hidden'; } else if(!crmOpen && !authOpen) { window.lenis?.start(); document.body.style.overflow = ''; } })" class="bg-deep text-[#f1f3f9] min-h-screen relative overflow-x-hidden selection:bg-[#ff007f]/30">
 
   <!-- Background Decorative Blobs -->
   <div class="glow-blob w-[500px] h-[500px] bg-purple-900/30 top-10 left-[-10%]"></div>
@@ -175,6 +193,11 @@
         <a href="#startups" class="nav-icon p-2.5 rounded-2xl text-[#8b92bf] hover:text-[#e100ff] hover:bg-white/5 transition-all duration-300 relative group" data-sec="startups">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           <span class="absolute left-24 bg-sidebar text-white text-xs px-3 py-1.5 rounded-lg border border-white/5 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Startups</span>
+        </a>
+        <!-- Blog -->
+        <a href="#blog" class="nav-icon p-2.5 rounded-2xl text-[#8b92bf] hover:text-[#00f2fe] hover:bg-white/5 transition-all duration-300 relative group" data-sec="blog">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          <span class="absolute left-24 bg-sidebar text-white text-xs px-3 py-1.5 rounded-lg border border-white/5 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Blog</span>
         </a>
         <!-- Contact -->
         <a href="#contact" class="nav-icon p-2.5 rounded-2xl text-[#8b92bf] hover:text-red-500 hover:bg-white/5 transition-all duration-300 relative group" data-sec="contact">
@@ -589,6 +612,43 @@
         </div>
       </section>
 
+      <!-- SECTION: BLOG -->
+      <section id="blog" class="scroll-section py-16">
+        <div class="w-full flex flex-col gap-8">
+          <div class="flex justify-between items-end border-b border-white/5 pb-4">
+            <div>
+              <span class="text-xs text-[#00f2fe] uppercase tracking-widest font-bold" x-text="$store.websiteData.blog.tag"></span>
+              <h2 class="text-3xl md:text-5xl font-heading font-extrabold tracking-tight mt-1" x-text="$store.websiteData.blog.title"></h2>
+            </div>
+            <p class="text-sm text-zinc-400 hidden sm:block" x-text="$store.websiteData.blog.description"></p>
+          </div>
+
+          <!-- Blog Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <template x-for="(post, index) in $store.websiteData.blog.posts" :key="index">
+              <div @click="activePost = post; readerOpen = true" class="glass-panel rounded-[32px] p-6 flex flex-col gap-5 group hover:translate-y-[-4px] cursor-pointer">
+                <div class="w-full h-48 rounded-2xl bg-gradient-to-tr from-purple-900/50 to-pink-900/30 border border-white/5 relative overflow-hidden flex items-center justify-center">
+                  <img x-show="post.img" :src="post.img || ''" alt="Post Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div x-show="!post.img" class="w-full h-full flex items-center justify-center">
+                    <span class="text-5xl group-hover:scale-110 transition-transform">📝</span>
+                  </div>
+                </div>
+                <div class="flex flex-col flex-grow justify-between">
+                  <div>
+                    <span class="text-[10px] text-zinc-500 font-bold" x-text="post.fecha"></span>
+                    <h3 class="text-xl font-bold mt-1 text-white group-hover:text-[#00f2fe] transition-colors" x-text="post.titulo"></h3>
+                    <p class="text-zinc-400 text-xs mt-2.5 line-clamp-3 leading-relaxed" x-text="post.slogan"></p>
+                  </div>
+                  <span class="text-xs text-[#00f2fe] font-bold mt-4 flex items-center gap-1 group-hover:underline">
+                    Leer Artículo <span>&rarr;</span>
+                  </span>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+
       <!-- SECTION 5: CONTACT CONSOLE -->
       <section id="contact" class="scroll-section py-16 flex flex-col justify-center items-center">
         <div class="w-full max-w-3xl glass-panel rounded-[32px] p-8 sm:p-12 relative overflow-hidden flex flex-col gap-8" id="contact-container">
@@ -699,8 +759,9 @@
         <button @click="activeCrmTab = 'hero'" :class="activeCrmTab === 'hero' ? 'bg-[#00f2fe] text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 1: Hero</button>
         <button @click="activeCrmTab = 'tools'" :class="activeCrmTab === 'tools' ? 'bg-[#fff000] text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 2: Stack (Tools)</button>
         <button @click="activeCrmTab = 'portfolio'" :class="activeCrmTab === 'portfolio' ? 'bg-[#ff7a00] text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 3: Portafolio</button>
-        <button @click="activeCrmTab = 'startups'" :class="activeCrmTab === 'startups' ? 'bg-[#e100ff] text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 4: Startups</button>
-        <button @click="activeCrmTab = 'contact'" :class="activeCrmTab === 'contact' ? 'bg-red-500 text-white font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sección 5: Contacto</button>
+        <button @click="activeCrmTab = 'startups'" :class="activeCrmTab === 'startups' ? 'bg-[#e100ff] text-black' : 'text-zinc-400 hover:bg-white/5'" class="w-full text-left py-2.5 px-4 rounded-xl text-xs font-bold transition-all">Startups</button>
+        <button @click="activeCrmTab = 'blog'" :class="activeCrmTab === 'blog' ? 'bg-[#00f2fe] text-black' : 'text-zinc-400 hover:bg-white/5'" class="w-full text-left py-2.5 px-4 rounded-xl text-xs font-bold transition-all">Blog</button>
+        <button @click="activeCrmTab = 'contact'" :class="activeCrmTab === 'contact' ? 'bg-red-500 text-white' : 'text-zinc-400 hover:bg-white/5'" class="w-full text-left py-2.5 px-4 rounded-xl text-xs font-bold transition-all">Contacto</button>
         <button @click="activeCrmTab = 'socials'" :class="activeCrmTab === 'socials' ? 'bg-white text-black font-bold' : 'text-zinc-400 hover:text-white hover:bg-white/5'" class="w-full text-left px-4 py-3 rounded-xl text-xs transition-colors">Sociales / Enlaces</button>
       </div>
 
@@ -964,6 +1025,80 @@
           </div>
         </div>
 
+        <!-- Tab: BLOG -->
+        <div x-show="activeCrmTab === 'blog'" class="flex flex-col gap-6" style="display: none;">
+          <h3 class="text-lg font-heading font-bold text-[#00f2fe] border-b border-white/5 pb-2">Configuración del Blog</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Etiqueta Superior</label>
+              <input type="text" x-model="$store.websiteData.blog.tag" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Título de la Sección</label>
+              <input type="text" x-model="$store.websiteData.blog.title" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none">
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-xs text-zinc-500 font-bold uppercase pl-1">Descripción del Blog</label>
+            <textarea x-model="$store.websiteData.blog.description" rows="2" class="bg-black/35 text-sm text-white border border-white/5 rounded-xl py-3 px-4 focus:outline-none"></textarea>
+          </div>
+          
+          <h4 class="text-sm font-bold text-white mt-4 border-b border-white/5 pb-1">Artículos Publicados</h4>
+          
+          <!-- Loop to edit blog posts -->
+          <div class="flex flex-col gap-6">
+            <template x-for="(post, index) in $store.websiteData.blog.posts" :key="index">
+              <div class="bg-black/25 p-5 rounded-2xl border border-white/5 flex flex-col gap-4 relative">
+                <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span class="text-xs font-bold text-[#00f2fe]" x-text="'Artículo #' + (index + 1)"></span>
+                  <!-- Delete button -->
+                  <button @click="$store.websiteData.blog.posts.splice(index, 1)" class="text-xs bg-red-600/20 text-red-400 hover:bg-red-600 hover:text-white px-3 py-1 rounded-lg transition-colors">
+                    Eliminar
+                  </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Título del Artículo</label>
+                    <input type="text" x-model="post.titulo" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Slogan / Resumen</label>
+                    <input type="text" x-model="post.slogan" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div class="flex flex-col gap-1.5 md:col-span-2">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">URL de Imagen</label>
+                    <input type="url" x-model="post.img" placeholder="https://images.unsplash.com/..." class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Imagen Max Width (ej: 600px, 100%)</label>
+                    <input type="text" x-model="post.imgMaxWidth" placeholder="600px" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Fecha (AAAA-MM-DD)</label>
+                    <input type="text" x-model="post.fecha" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Identificador URL (slug único)</label>
+                    <input type="text" x-model="post.id" class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none">
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-[10px] text-zinc-500 font-bold uppercase pl-1">Contenido (Markdown soportado)</label>
+                  <textarea x-model="post.content" rows="6" placeholder="Escribe tu post en Markdown..." class="bg-black/35 text-xs text-white border border-white/5 rounded-lg py-2 px-3 focus:outline-none font-mono"></textarea>
+                </div>
+              </div>
+            </template>
+            <!-- Add button -->
+            <button @click="$store.websiteData.blog.posts.push({ id: 'nuevo-post-' + Date.now(), titulo: 'Nuevo Artículo', slogan: 'Slogan o resumen corto...', fecha: new Date().toISOString().split('T')[0], img: '', imgMaxWidth: '600px', content: 'Escribe tu contenido aquí usando **Markdown**.' })" class="py-3 bg-white/5 border border-dashed border-white/10 hover:bg-white/10 rounded-2xl text-xs font-bold text-center text-zinc-300">
+              + Añadir Artículo
+            </button>
+          </div>
+        </div>
+
         <!-- Tab: CONTACT -->
         <div x-show="activeCrmTab === 'contact'" class="flex flex-col gap-6" style="display: none;">
           <h3 class="text-lg font-heading font-bold text-red-500 border-b border-white/5 pb-2">Configuración del Bloque de Contacto</h3>
@@ -1010,6 +1145,40 @@
 
     </div>
 
+  </div>
+
+  <!-- Article Reader Modal -->
+  <div x-show="readerOpen" class="fixed inset-0 z-[110] bg-deep/95 backdrop-blur-2xl p-6 sm:p-12 flex flex-col justify-start h-screen overflow-y-auto" style="display: none;" x-transition data-lenis-prevent>
+    <div class="max-w-3xl mx-auto w-full flex flex-col gap-6 py-6">
+      
+      <!-- Close Button -->
+      <div class="flex justify-between items-center border-b border-white/5 pb-4">
+        <button @click="readerOpen = false" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-xs font-bold text-zinc-300 flex items-center gap-2 transition-colors">
+          <span>&larr;</span> Volver al Blog
+        </button>
+        <span class="text-xs text-zinc-500 font-bold" x-text="activePost?.fecha"></span>
+      </div>
+
+      <!-- Post Header -->
+      <div class="flex flex-col gap-3">
+        <h1 class="text-4xl md:text-5xl font-heading font-black text-white leading-tight" x-text="activePost?.titulo"></h1>
+        <p class="text-zinc-400 text-lg font-light leading-relaxed" x-text="activePost?.slogan"></p>
+      </div>
+
+      <!-- Header Image -->
+      <template x-if="activePost?.img">
+        <div class="w-full flex justify-center my-4">
+          <img :src="activePost?.img" alt="Post Header Image" class="rounded-[32px] border border-white/5 shadow-2xl object-cover max-h-[400px]" :style="'width: 100%; max-width: ' + (activePost?.imgMaxWidth || '100%')">
+        </div>
+      </template>
+
+      <!-- Content (Markdown Rendered) -->
+      <div class="blog-content mt-4" x-html="activePost ? marked.parse(activePost.content) : ''"></div>
+
+      <!-- Footer Spacer -->
+      <div class="h-16"></div>
+
+    </div>
   </div>
 
   <script src="app.js"></script>

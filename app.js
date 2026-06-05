@@ -303,6 +303,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     );
 
+    // Section: Blog items entry
+    gsap.fromTo('#blog .glass-panel', 
+      { opacity: 0, y: 80 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'power3.out',
+        clearProps: "transform",
+        scrollTrigger: {
+          trigger: '#blog',
+          start: 'top 75%',
+          toggleActions: "play none none none"
+        }
+      }
+    );
+
     // Section 4: Startups chat logs entry
     const chatMessages = document.querySelectorAll('.chat-message-row');
     if (chatMessages.length > 0) {
@@ -385,6 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (current === 'tools') icon.classList.add('text-[#fff000]');
           if (current === 'portfolio') icon.classList.add('text-[#ff7a00]');
           if (current === 'startups') icon.classList.add('text-[#e100ff]');
+          if (current === 'blog') icon.classList.add('text-[#00f2fe]');
           if (current === 'contact') icon.classList.add('text-red-500');
         }
       });
