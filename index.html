@@ -516,7 +516,7 @@
                   
                   <div class="prose prose-invert max-w-none text-slate-300 text-sm md:text-base leading-relaxed space-y-4">
                     <!-- Contenido formateado en párrafos -->
-                    <template x-for="paragraph in selectedPost.content.split('\n\n')">
+                    <template x-for="paragraph in (selectedPost.content || '').split('\n\n')">
                       <p x-text="paragraph"></p>
                     </template>
                   </div>
@@ -557,7 +557,7 @@
                   <div class="relative z-10">
                     <!-- Tecnologías / Insignias -->
                     <div class="flex flex-wrap gap-1.5 mb-6">
-                      <template x-for="tech in proj.technologies.split(',')">
+                      <template x-for="tech in (proj.technologies || '').split(',')">
                         <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-white/5 border border-white/5 text-slate-300" x-text="tech.trim()"></span>
                       </template>
                     </div>
