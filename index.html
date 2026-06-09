@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="style.css">
   <!-- Tailwind CSS v4 Play CDN (Proporciona compilación en navegador) -->
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  <!-- PocketBase JS SDK (Uso de CDN jsDelivr altamente confiable) -->
-  <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.21.3/dist/pocketbase.umd.js"></script>
   <!-- Lucide Icons UMD Build -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.395.0/dist/umd/lucide.min.js"></script>
   <!-- Alpine.js Core -->
@@ -924,14 +922,23 @@
                 </button>
               </div>
 
-              <!-- Botón de Añadir Nuevo -->
-              <button 
-                @click="openCreateForm()"
-                class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-cyan-500/10 transition-all flex items-center gap-2 cursor-pointer"
-              >
-                <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                <span x-text="'Añadir ' + (backofficeTab === 'posts' ? 'Post' : backofficeTab === 'proyectos' ? 'Proyecto' : backofficeTab === 'startups' ? 'Startup' : 'Noticia')"></span>
-              </button>
+              <!-- Botón de Añadir Nuevo y Contraseña -->
+              <div class="flex items-center gap-3">
+                <input 
+                  type="password" 
+                  x-model="backofficePassword" 
+                  @input="localStorage.setItem('backoffice_password', backofficePassword)"
+                  placeholder="Contraseña Backoffice" 
+                  class="bg-slate-950/70 border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500 transition-colors w-40"
+                >
+                <button 
+                  @click="openCreateForm()"
+                  class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-cyan-500/10 transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap"
+                >
+                  <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                  <span x-text="'Añadir ' + (backofficeTab === 'posts' ? 'Post' : backofficeTab === 'proyectos' ? 'Proyecto' : backofficeTab === 'startups' ? 'Startup' : backofficeTab === 'noticias' ? 'Noticia' : 'Hito')"></span>
+                </button>
+              </div>
             </div>
 
             <!-- Tabla de datos estilo Liquid Glass -->
@@ -1090,16 +1097,6 @@
     // Garantizar que lucide apunte al objeto correcto en el UMD de Lucide
     window.lucide = window.lucide || window.Lucide;
 
-    // Configuración robusta de PocketBase (previene crasheos si falla el script CDN)
-    let pb;
-    try {
-      if (window.PocketBase) {
-        pb = new PocketBase('http://127.0.0.1:8090');
-      }
-    } catch (e) {
-      console.warn("PocketBase SDK no disponible:", e);
-    }
-
     function portalApp() {
       return {
         activeSection: 'main',
@@ -1109,6 +1106,7 @@
         
         // Variables Backoffice
         backofficeTab: 'posts',
+        backofficePassword: localStorage.getItem('backoffice_password') || '',
         showFormModal: false,
         formAction: 'create',
         formData: {},
@@ -1134,7 +1132,6 @@
 
         // Inicialización
         initApp() {
-          // Intentar cargar datos desde PocketBase
           this.loadData();
           
           // Renderizar los iconos de Lucide inicialmente con validación de existencia
@@ -1143,185 +1140,171 @@
           }, 200);
         },
 
-        // Cargar datos
+        // Cargar datos desde JSON local o fallbacks
         async loadData() {
-          // 1. Datos del Blog (Posts)
           try {
-            const records = await pb.collection('posts').getFullList({ sort: '-created' });
-            this.posts = records;
-            if (this.posts.length > 0) this.selectedPost = this.posts[0];
+            const response = await fetch('data.json');
+            if (response.ok) {
+              const data = await response.json();
+              this.posts = data.posts || [];
+              this.projects = data.projects || [];
+              this.startups = data.startups || [];
+              this.news = data.news || [];
+              this.historia = data.historia || [];
+              if (this.posts.length > 0) this.selectedPost = this.posts[0];
+              console.log("Datos cargados correctamente desde data.json");
+              return;
+            }
           } catch (e) {
-            console.warn("PocketBase 'posts' no disponible. Cargando mockups de posts...");
-            this.posts = [
-              {
-                id: 'p1',
-                title: 'El Futuro del Desarrollo Web con Tailwind CSS v4',
-                category: 'CSS / Web',
-                created: '2026-06-05T10:00:00Z',
-                description: 'Una inmersión profunda en las novedades de la v4, su compilador nativo ultrarrápido escrito en Rust y su configuración directa sin javascript.',
-                content: 'Tailwind CSS v4 introduce un motor de diseño completamente renovado, ahora potenciado por un compilador escrito en Rust. Este nuevo motor no requiere configuraciones complejas en archivos JS, sino que todo se gestiona directamente en tu hoja de estilos principal usando la directiva `@import "tailwindcss";`.\n\nEl rendimiento es de hasta 10 veces más rápido que la versión anterior, lo que significa que el tiempo de desarrollo en caliente es prácticamente instantáneo. Además, tiene soporte nativo de Cascade Layers y variables CSS CSS-first.\n\nEsto simplifica enormemente la estructura del proyecto, especialmente cuando se integra con frameworks minimalistas o puros como AlpineJS.'
-              },
-              {
-                id: 'p2',
-                title: 'Construyendo Interfaces Premium con Alpine.js',
-                category: 'Alpine.js',
-                created: '2026-05-28T14:30:00Z',
-                description: 'Por qué a veces menos es más. Cómo simplificar tu arquitectura de componentes interactivos sin perder rendimiento.',
-                content: 'En la era de los gigantes React y Next.js, surge la alternativa pragmática: AlpineJS. Al ofrecer reactividad de estilo Vue en la simplicidad de etiquetas HTML directas, AlpineJS se consolida como el rey de las soluciones ligeras.\n\nNo hay compilación pesada, no hay sobrecarga de JavaScript de 50KB adicionales. Solamente agregas la etiqueta del CDN y empiezas a usar directivas simples como `x-data`, `x-show`, `x-bind` y `x-on`.\n\nEn este artículo repasamos cómo estructurar dashboards complejos, menús de navegación deslizantes y efectos interactivos usando la reactividad nativa de AlpineJS sin una sola línea de lógica de frameworks complejos.'
-              },
-              {
-                id: 'p3',
-                title: 'PocketBase: El Backend de un Solo Binario Explicado',
-                category: 'PocketBase / Backend',
-                created: '2026-05-15T09:15:00Z',
-                description: 'Paso a paso de la descarga del binario, permisos de ejecución y nginx proxy para desplegar tu base de datos SQLite.',
-                content: 'PocketBase es un software que unifica base de datos (SQLite), autenticación de usuarios, gestor de archivos adjuntos y una consola de administración visual interactiva. Todo esto está empaquetado en un único archivo ejecutable de unos 30MB.\n\nPara startups y creadores independientes, es la herramienta definitiva. Te permite lanzar una idea en minutos y hospedarla en un VPS de 4 dólares al mes, manejando miles de visitas recurrentes gracias al bajo consumo de SQLite.\n\nEn esta guía vemos cómo conectarlo a un servidor de proxy Nginx y cómo automatizar los respaldos de la base de datos de manera local.'
-              }
-            ];
-            this.selectedPost = this.posts[0];
+            console.warn("No se pudo cargar data.json (CORS o archivo ausente). Usando datos locales por defecto.");
           }
 
-          // 2. Datos de Proyectos
-          try {
-            const records = await pb.collection('proyectos').getFullList({ sort: '-created' });
-            this.projects = records;
-          } catch (e) {
-            console.warn("PocketBase 'proyectos' no disponible. Cargando mockups de proyectos...");
-            this.projects = [
-              {
-                id: 'pr1',
-                title: 'JordanStarter',
-                description: 'Una plantilla inicial premium para desarrolladores independientes que busquen una base rápida, visualmente espectacular y ligera basada en Tailwind y Alpine.',
-                technologies: 'HTML, CSS Tailwind, Alpine.js, PocketBase',
-                year: '2026',
-                demo_url: 'https://jordanstarter.io',
-                github_url: 'https://github.com'
-              },
-              {
-                id: 'pr2',
-                title: 'AI-Nexus Platform',
-                description: 'Plataforma analítica SaaS para agregación de reportes financieros procesados por modelos de inteligencia artificial en tiempo real.',
-                technologies: 'Tailwind CSS, Alpine.js, SQLite, Python',
-                year: '2026',
-                demo_url: 'https://ai-nexus.cloud',
-                github_url: 'https://github.com'
-              },
-              {
-                id: 'pr3',
-                title: 'GlassUI Kit',
-                description: 'Librería de componentes UI con estilos glassmorphic puros. Incluye botones tridimensionales, interruptores de neón y tarjetas con reflejo dinámico.',
-                technologies: 'HTML, Pure CSS, Tailwind v4',
-                year: '2025',
-                demo_url: 'https://glass-ui.dev',
-                github_url: 'https://github.com'
-              }
-            ];
-          }
+          // Fallbacks locales (si se ejecuta sin servidor local por ejemplo)
+          this.posts = [
+            {
+              id: 'p1',
+              title: 'El Futuro del Desarrollo Web con Tailwind CSS v4',
+              category: 'CSS / Web',
+              created: '2026-06-05T10:00:00Z',
+              description: 'Una inmersión profunda en las novedades de la v4, su compilador nativo ultrarrápido escrito en Rust y su configuración directa sin javascript.',
+              content: 'Tailwind CSS v4 introduce un motor de diseño completamente renovado, ahora potenciado por un compilador escrito en Rust. Este nuevo motor no requiere configuraciones complejas en archivos JS, sino que todo se gestiona directamente en tu hoja de estilos principal usando la directiva `@import "tailwindcss";`.\n\nEl rendimiento es de hasta 10 veces más rápido que la versión anterior, lo que significa que el tiempo de desarrollo en caliente es prácticamente instantáneo. Además, tiene soporte nativo de Cascade Layers y variables CSS CSS-first.\n\nEsto simplifica enormemente la estructura del proyecto, especialmente cuando se integra con frameworks minimalistas o puros como AlpineJS.'
+            },
+            {
+              id: 'p2',
+              title: 'Construyendo Interfaces Premium con Alpine.js',
+              category: 'Alpine.js',
+              created: '2026-05-28T14:30:00Z',
+              description: 'Por qué a veces menos es más. Cómo simplificar tu arquitectura de componentes interactivos sin perder rendimiento.',
+              content: 'En la era de los gigantes React y Next.js, surge la alternativa pragmática: AlpineJS. Al ofrecer reactividad de estilo Vue en la simplicidad de etiquetas HTML directas, AlpineJS se consolida como el rey de las soluciones ligeras.\n\nNo hay compilación pesada, no hay sobrecarga de JavaScript de 50KB adicionales. Solamente agregas la etiqueta del CDN y empiezas a usar directivas simples como `x-data`, `x-show`, `x-bind` y `x-on`.\n\nEn este artículo repasamos cómo estructurar dashboards complejos, menús de navegación deslizantes y efectos interactivos usando la reactividad nativa de AlpineJS sin una sola línea de lógica de frameworks complejos.'
+            },
+            {
+              id: 'p3',
+              title: 'PocketBase: El Backend de un Solo Binario Explicado',
+              category: 'PocketBase / Backend',
+              created: '2026-05-15T09:15:00Z',
+              description: 'Paso a paso de la descarga del binario, permisos de ejecución y nginx proxy para desplegar tu base de datos SQLite.',
+              content: 'PocketBase es un software que unifica base de datos (SQLite), autenticación de usuarios, gestor de archivos adjuntos y una consola de administración visual interactiva. Todo esto está empaquetado en un único archivo ejecutable de unos 30MB.\n\nPara startups y creadores independientes, es la herramienta definitiva. Te permite lanzar una idea en minutos y hospedarla en un VPS de 4 dólares al mes, manejando miles de visitas recurrentes gracias al bajo consumo de SQLite.\n\nEn esta guía vemos cómo conectarlo a un servidor de proxy Nginx y cómo automatizar los respaldos de la base de datos de manera local.'
+            }
+          ];
+          this.selectedPost = this.posts[0];
 
-          // 3. Datos de Startups
-          try {
-            const records = await pb.collection('startups').getFullList({ sort: '-created' });
-            this.startups = records;
-          } catch (e) {
-            console.warn("PocketBase 'startups' no disponible. Cargando mockups de startups...");
-            this.startups = [
-              {
-                id: 'st1',
-                title: 'MakeByJordan',
-                tagline: 'Fábrica de Automatizaciones & Software Premium',
-                description: 'Desarrollo a medida y creación de plantillas web premium e integraciones de IA para creadores y empresas medianas.',
-                growth: 85,
-                progress: 90,
-                status: 'En Crecimiento',
-                founded: '2025',
-                url: 'https://makebyjordan.com'
-              },
-              {
-                id: 'st2',
-                title: 'AuraLink AI',
-                tagline: 'Herramientas de Agentes Conversacionales',
-                description: 'SaaS de chat y optimización de flujos de leads asistidos por IA, conectado con bases de datos locales y CRMs.',
-                growth: 62,
-                progress: 75,
-                status: 'Beta Abierta',
-                founded: '2026',
-                url: 'https://auralink.ai'
-              }
-            ];
-          }
+          this.projects = [
+            {
+              id: 'pr1',
+              title: 'JordanStarter',
+              description: 'Una plantilla inicial premium para desarrolladores independientes que busquen una base rápida, visualmente espectacular y ligera basada en Tailwind y Alpine.',
+              technologies: 'HTML, CSS Tailwind, Alpine.js, PocketBase',
+              year: '2026',
+              demo_url: 'https://jordanstarter.io',
+              github_url: 'https://github.com'
+            },
+            {
+              id: 'pr2',
+              title: 'AI-Nexus Platform',
+              description: 'Plataforma analítica SaaS para agregación de reportes financieros procesados por modelos de inteligencia artificial en tiempo real.',
+              technologies: 'Tailwind CSS, Alpine.js, SQLite, Python',
+              year: '2026',
+              demo_url: 'https://ai-nexus.cloud',
+              github_url: 'https://github.com'
+            },
+            {
+              id: 'pr3',
+              title: 'GlassUI Kit',
+              description: 'Librería de componentes UI con estilos glassmorphic puros. Incluye botones tridimensionales, interruptores de neón y tarjetas con reflejo dinámico.',
+              technologies: 'HTML, Pure CSS, Tailwind v4',
+              year: '2025',
+              demo_url: 'https://glass-ui.dev',
+              github_url: 'https://github.com'
+            }
+          ];
 
-          // 4. Datos de Noticias
-          try {
-            const records = await pb.collection('noticias').getFullList({ sort: '-created' });
-            this.news = records;
-          } catch (e) {
-            console.warn("PocketBase 'noticias' no disponible. Cargando mockups de noticias...");
-            this.news = [
-              {
-                id: 'nw1',
-                title: 'Tailwind CSS v4 Estable es Lanzado',
-                description: 'La nueva versión incluye compilador de óxido nativo, configuración CSS-first y soporte integrado de importación directa de fuentes de Google.',
-                source: 'Tech Crunch',
-                created: '2026-06-04T08:00:00Z',
-                url: 'https://github.com/tailwindlabs/tailwindcss'
-              },
-              {
-                id: 'nw2',
-                title: 'SQLite se Consolida como Base de Datos SaaS',
-                description: 'Estudios de ingeniería demuestran que SQLite sobre unidades SSD NVMe supera a PostgreSQL en lecturas directas para aplicaciones de tamaño medio.',
-                source: 'Hacker News',
-                created: '2026-05-30T12:00:00Z',
-                url: 'https://news.ycombinator.com'
-              },
-              {
-                id: 'nw3',
-                title: 'Apple presenta chips M5 con Acelerador de Tensores',
-                description: 'La nueva generación de procesadores para computadoras portátiles integra motores dedicados al procesamiento de modelos de IA locales.',
-                source: 'Wired',
-                created: '2026-05-25T16:45:00Z',
-                url: 'https://wired.com'
-              }
-            ];
-          }
+          this.startups = [
+            {
+              id: 'st1',
+              title: 'MakeByJordan',
+              tagline: 'Fábrica de Automatizaciones & Software Premium',
+              description: 'Desarrollo a medida y creación de plantillas web premium e integraciones de IA para creadores y empresas medianas.',
+              growth: 85,
+              progress: 90,
+              status: 'En Crecimiento',
+              founded: '2025',
+              url: 'https://makebyjordan.com'
+            },
+            {
+              id: 'st2',
+              title: 'AuraLink AI',
+              tagline: 'Herramientas de Agentes Conversacionales',
+              description: 'SaaS de chat y optimización de flujos de leads asistidos por IA, conectado con bases de datos locales y CRMs.',
+              growth: 62,
+              progress: 75,
+              status: 'Beta Abierta',
+              founded: '2026',
+              url: 'https://auralink.ai'
+            }
+          ];
 
-          // 5. Datos de Historia / Timeline
-          try {
-            const records = await pb.collection('historia').getFullList({ sort: '-year' });
-            this.historia = records;
-          } catch (e) {
-            console.warn("PocketBase 'historia' no disponible. Cargando mockups de historia...");
-            this.historia = [
-              {
-                id: 'h1',
-                year: '2026',
-                title: 'Lanzamiento de Jordan Workspace',
-                subtitle: 'Portal Personal & SaaS',
-                category: 'Startup',
-                description: 'Lanzamiento de la plataforma de portafolio interactiva y modular con tecnología Liquid Glass UI, simplificando el despliegue para creadores independientes.'
-              },
-              {
-                id: 'h2',
-                year: '2025',
-                title: 'Fundación de MakeByJordan',
-                subtitle: 'Fábrica de Automatizaciones',
-                category: 'Trabajo',
-                description: 'Creación de la marca y empresa dedicada al desarrollo a medida de integraciones de IA, agentes autónomos y automatizaciones de flujos de trabajo premium.'
-              },
-              {
-                id: 'h3',
-                year: '2024',
-                title: 'Especialista en Tecnologías Frontend',
-                subtitle: 'Formación y Certificaciones',
-                category: 'Estudio',
-                description: 'Estudio y dominio profundo del nuevo compilador Tailwind CSS v4, interfaces reactivas eficientes con Alpine.js y desarrollo backend minimalista con Go y PocketBase.'
-              },
-              {
-                id: 'h4',
-                year: '2023',
-                title: 'Primer SaaS Exitoso en Producción',
-                subtitle: 'Hito de Tráfico',
-                category: 'Logro',
-                description: 'Despliegue y escalado de una plataforma SaaS que alcanzó los primeros 1,000 usuarios activos mensuales concurrentes alojado en un único servidor VPS de bajo costo.'
+          this.news = [
+            {
+              id: 'nw1',
+              title: 'Tailwind CSS v4 Estable es Lanzado',
+              description: 'La nueva versión incluye compilador de óxido nativo, configuración CSS-first y soporte integrado de importación directa de fuentes de Google.',
+              source: 'Tech Crunch',
+              created: '2026-06-04T08:00:00Z',
+              url: 'https://github.com/tailwindlabs/tailwindcss'
+            },
+            {
+              id: 'nw2',
+              title: 'SQLite se Consolida como Base de Datos SaaS',
+              description: 'Estudios de ingeniería demuestran que SQLite sobre unidades SSD NVMe supera a PostgreSQL en lecturas directas para aplicaciones de tamaño medio.',
+              source: 'Hacker News',
+              created: '2026-05-30T12:00:00Z',
+              url: 'https://news.ycombinator.com'
+            },
+            {
+              id: 'nw3',
+              title: 'Apple presenta chips M5 con Acelerador de Tensores',
+              description: 'La nueva generación de procesadores para computadoras portátiles integra motores dedicados al procesamiento de modelos de IA locales.',
+              source: 'Wired',
+              created: '2026-05-25T16:45:00Z',
+              url: 'https://wired.com'
+            }
+          ];
+
+          this.historia = [
+            {
+              id: 'h1',
+              year: '2026',
+              title: 'Lanzamiento de Jordan Workspace',
+              subtitle: 'Portal Personal & SaaS',
+              category: 'Startup',
+              description: 'Lanzamiento de la plataforma de portafolio interactiva y modular con tecnología Liquid Glass UI, simplificando el despliegue para creadores independientes.'
+            },
+            {
+              id: 'h2',
+              year: '2025',
+              title: 'Fundación de MakeByJordan',
+              subtitle: 'Fábrica de Automatizaciones',
+              category: 'Trabajo',
+              description: 'Creación de la marca y empresa dedicada al desarrollo a medida de integraciones de IA, agentes autónomos y automatizaciones de flujos de trabajo premium.'
+            },
+            {
+              id: 'h3',
+              year: '2024',
+              title: 'Especialista en Tecnologías Frontend',
+              subtitle: 'Formación y Certificaciones',
+              category: 'Estudio',
+              description: 'Estudio y dominio profundo del nuevo compilador Tailwind CSS v4, interfaces reactivas eficientes con Alpine.js y desarrollo backend minimalista con Go y PocketBase.'
+            },
+            {
+              id: 'h4',
+              year: '2023',
+              title: 'Primer SaaS Exitoso en Producción',
+              subtitle: 'Hito de Tráfico',
+              category: 'Logro',
+              description: 'Despliegue y escalado de una plataforma SaaS que alcanzó los primeros 1,000 usuarios activos mensuales concurrentes alojado en un único servidor VPS de bajo costo.'
+            }
+          ];
+        },suales concurrentes alojado en un único servidor VPS de bajo costo.'
               }
             ];
           }
@@ -1440,27 +1423,6 @@
             } else if (collection === 'historia') {
               this.historia.unshift(newItem);
             }
-
-            try {
-              if (window.PocketBase && pb) {
-                const record = await pb.collection(collection).create(this.formData);
-                if (collection === 'posts') {
-                  this.posts[0] = record;
-                  if (this.selectedPost.id === newItem.id) this.selectedPost = record;
-                } else if (collection === 'proyectos') {
-                  this.projects[0] = record;
-                } else if (collection === 'startups') {
-                  this.startups[0] = record;
-                } else if (collection === 'noticias') {
-                  this.news[0] = record;
-                } else if (collection === 'historia') {
-                  this.historia[0] = record;
-                }
-              }
-            } catch (e) {
-              console.warn("PocketBase guardar error, local guardado:", e);
-            }
-
           } else {
             const id = this.editingId;
             let arr;
@@ -1477,18 +1439,13 @@
                 this.selectedPost = arr[index];
               }
             }
-
-            try {
-              if (window.PocketBase && pb && !id.startsWith('local_')) {
-                await pb.collection(collection).update(id, this.formData);
-              }
-            } catch (e) {
-              console.warn("PocketBase actualizar error:", e);
-            }
           }
 
           this.showFormModal = false;
           setTimeout(() => { this.initLucide(); }, 50);
+
+          // Persistir cambios en el servidor
+          await this.persistToServer();
         },
 
         async deleteItem(item) {
@@ -1514,15 +1471,48 @@
             this.historia = this.historia.filter(x => x.id !== id);
           }
 
-          try {
-            if (window.PocketBase && pb && !id.startsWith('local_')) {
-              await pb.collection(collection).delete(id);
-            }
-          } catch (e) {
-            console.warn("PocketBase eliminar error:", e);
+          setTimeout(() => { this.initLucide(); }, 50);
+
+          // Persistir cambios en el servidor
+          await this.persistToServer();
+        },
+
+        // Guardar cambios en el servidor vía PHP
+        async persistToServer() {
+          if (!this.backofficePassword) {
+            alert("Atención: Los cambios se han guardado localmente en tu navegador para esta sesión. Para guardarlos permanentemente en el servidor de producción, debes ingresar la contraseña del Backoffice arriba a la derecha.");
+            return;
           }
 
-          setTimeout(() => { this.initLucide(); }, 50);
+          const payload = {
+            posts: this.posts,
+            projects: this.projects,
+            startups: this.startups,
+            news: this.news,
+            historia: this.historia
+          };
+
+          try {
+            const response = await fetch('save.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                password: this.backofficePassword,
+                payload: payload
+              })
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+              console.log("Servidor actualizado con éxito:", result.message);
+            } else {
+              alert("Error al guardar en el servidor: " + (result.message || "Sin respuesta"));
+            }
+          } catch (e) {
+            console.warn("No se pudo conectar con save.php. Los cambios permanecen de forma local:", e);
+          }
         }
       }
     }

@@ -1,0 +1,141 @@
+{
+  "posts": [
+    {
+      "id": "p1",
+      "title": "El Futuro del Desarrollo Web con Tailwind CSS v4",
+      "category": "CSS / Web",
+      "created": "2026-06-05T10:00:00Z",
+      "description": "Una inmersión profunda en las novedades de la v4, su compilador nativo ultrarrápido escrito en Rust y su configuración directa sin javascript.",
+      "content": "Tailwind CSS v4 introduce un motor de diseño completamente renovado, ahora potenciado por un compilador escrito en Rust. Este nuevo motor no requiere configuraciones complejas en archivos JS, sino que todo se gestiona directamente en tu hoja de estilos principal usando la directiva `@import \"tailwindcss\";`.\n\nEl rendimiento es de hasta 10 veces más rápido que la versión anterior, lo que significa que el tiempo de desarrollo en caliente es prácticamente instantáneo. Además, tiene soporte nativo de Cascade Layers y variables CSS CSS-first.\n\nEsto simplifica enormemente la estructura del proyecto, especialmente cuando se integra con frameworks minimalistas o puros como AlpineJS."
+    },
+    {
+      "id": "p2",
+      "title": "Construyendo Interfaces Premium con Alpine.js",
+      "category": "Alpine.js",
+      "created": "2026-05-28T14:30:00Z",
+      "description": "Por qué a veces menos es más. Cómo simplificar tu arquitectura de componentes interactivos sin perder rendimiento.",
+      "content": "En la era de los gigantes React y Next.js, surge la alternativa pragmática: AlpineJS. Al ofrecer reactividad de estilo Vue en la simplicidad de etiquetas HTML directas, AlpineJS se consolida como el rey de las soluciones ligeras.\n\nNo hay compilación pesada, no hay sobrecarga de JavaScript de 50KB adicionales. Solamente agregas la etiqueta del CDN y empiezas a usar directivas simples como `x-data`, `x-show`, `x-bind` y `x-on`.\n\nEn este artículo repasamos cómo estructurar dashboards complejos, menús de navegación deslizantes y efectos interactivos usando la reactividad nativa de AlpineJS sin una sola línea de lógica de frameworks complejos."
+    },
+    {
+      "id": "p3",
+      "title": "PocketBase: El Backend de un Solo Binario Explicado",
+      "category": "PocketBase / Backend",
+      "created": "2026-05-15T09:15:00Z",
+      "description": "Paso a paso de la descarga del binario, permisos de ejecución y nginx proxy para desplegar tu base de datos SQLite.",
+      "content": "PocketBase es un software que unifica base de datos (SQLite), autenticación de usuarios, gestor de archivos adjuntos y una consola de administración visual interactiva. Todo esto está empaquetado en un único archivo ejecutable de unos 30MB.\n\nPara startups y creadores independientes, es la herramienta definitiva. Te permite lanzar una idea en minutos y hospedarla en un VPS de 4 dólares al mes, manejando miles de visitas recurrentes gracias al bajo consumo de SQLite.\n\nEn esta guía vemos cómo conectarlo a un servidor de proxy Nginx y cómo automatizar los respaldos de la base de datos de manera local."
+    }
+  ],
+  "projects": [
+    {
+      "id": "pr1",
+      "title": "JordanStarter",
+      "description": "Una plantilla inicial premium para desarrolladores independientes que busquen una base rápida, visualmente espectacular y ligera basada en Tailwind y Alpine.",
+      "technologies": "HTML, CSS Tailwind, Alpine.js, PocketBase",
+      "year": "2026",
+      "demo_url": "https://jordanstarter.io",
+      "github_url": "https://github.com"
+    },
+    {
+      "id": "pr2",
+      "title": "AI-Nexus Platform",
+      "description": "Plataforma analítica SaaS para agregación de reportes financieros procesados por modelos de inteligencia artificial en tiempo real.",
+      "technologies": "Tailwind CSS, Alpine.js, SQLite, Python",
+      "year": "2026",
+      "demo_url": "https://ai-nexus.cloud",
+      "github_url": "https://github.com"
+    },
+    {
+      "id": "pr3",
+      "title": "GlassUI Kit",
+      "description": "Librería de componentes UI con estilos glassmorphic puros. Incluye botones tridimensionales, interruptores de neón y tarjetas con reflejo dinámico.",
+      "technologies": "HTML, Pure CSS, Tailwind v4",
+      "year": "2025",
+      "demo_url": "https://glass-ui.dev",
+      "github_url": "https://github.com"
+    }
+  ],
+  "startups": [
+    {
+      "id": "st1",
+      "title": "MakeByJordan",
+      "tagline": "Fábrica de Automatizaciones & Software Premium",
+      "description": "Desarrollo a medida y creación de plantillas web premium e integraciones de IA para creadores y empresas medianas.",
+      "growth": 85,
+      "progress": 90,
+      "status": "En Crecimiento",
+      "founded": "2025",
+      "url": "https://makebyjordan.com"
+    },
+    {
+      "id": "st2",
+      "title": "AuraLink AI",
+      "tagline": "Herramientas de Agentes Conversacionales",
+      "description": "SaaS de chat y optimización de flujos de leads asistidos por IA, conectado con bases de datos locales y CRMs.",
+      "growth": 62,
+      "progress": 75,
+      "status": "Beta Abierta",
+      "founded": "2026",
+      "url": "https://auralink.ai"
+    }
+  ],
+  "news": [
+    {
+      "id": "nw1",
+      "title": "Tailwind CSS v4 Estable es Lanzado",
+      "description": "La nueva versión incluye compilador de óxido nativo, configuración CSS-first y soporte integrado de importación directa de fuentes de Google.",
+      "source": "Tech Crunch",
+      "created": "2026-06-04T08:00:00Z",
+      "url": "https://github.com/tailwindlabs/tailwindcss"
+    },
+    {
+      "id": "nw2",
+      "title": "SQLite se Consolida como Base de Datos SaaS",
+      "description": "Estudios de ingeniería demuestran que SQLite sobre unidades SSD NVMe supera a PostgreSQL en lecturas directas para aplicaciones de tamaño medio.",
+      "source": "Hacker News",
+      "created": "2026-05-30T12:00:00Z",
+      "url": "https://news.ycombinator.com"
+    },
+    {
+      "id": "nw3",
+      "title": "Apple presenta chips M5 con Acelerador de Tensores",
+      "description": "La nueva generación de procesadores para computadoras portátiles integra motores dedicados al procesamiento de modelos de IA locales.",
+      "source": "Wired",
+      "created": "2026-05-25T16:45:00Z",
+      "url": "https://wired.com"
+    }
+  ],
+  "historia": [
+    {
+      "id": "h1",
+      "year": "2026",
+      "title": "Lanzamiento de Jordan Workspace",
+      "subtitle": "Portal Personal & SaaS",
+      "category": "Startup",
+      "description": "Lanzamiento de la plataforma de portafolio interactiva y modular con tecnología Liquid Glass UI, simplificando el despliegue para creadores independientes."
+    },
+    {
+      "id": "h2",
+      "year": "2025",
+      "title": "Fundación de MakeByJordan",
+      "subtitle": "Fábrica de Automatizaciones",
+      "category": "Trabajo",
+      "description": "Creación de la marca y empresa dedicada al desarrollo a medida de integraciones de IA, agentes autónomos y automatizaciones de flujos de trabajo premium."
+    },
+    {
+      "id": "h3",
+      "year": "2024",
+      "title": "Especialista en Tecnologías Frontend",
+      "subtitle": "Formación y Certificaciones",
+      "category": "Estudio",
+      "description": "Estudio y dominio profundo del nuevo compilador Tailwind CSS v4, interfaces reactivas eficientes con Alpine.js y desarrollo backend minimalista con Go y PocketBase."
+    },
+    {
+      "id": "h4",
+      "year": "2023",
+      "title": "Primer SaaS Exitoso en Producción",
+      "subtitle": "Hito de Tráfico",
+      "category": "Logro",
+      "description": "Despliegue y escalado de una plataforma SaaS que alcanzó los primeros 1,000 usuarios activos mensuales concurrentes alojado en un único servidor VPS de bajo costo."
+    }
+  ]
+}
